@@ -15,7 +15,9 @@ We take our data point that has predicted probabilites $$x_1=[0.3, 0.5, 0.2]$$ a
 
 We create our confident joint by adding up the number of data points in each class and creating a confusion matrix. On the left axis, we have the predicted label from the model and on the top we have the true labels after the confident threshold. We then fill the diagonals with a min of 1 to ensure that there is at least 1 correctly labeled example in each class. At the end, we normalize the rows and columns by summing all the entries up and dividing by the total.
 
-<img src="clean-lab-algo.png" width="300" height="250"/>
+<p align="center">
+  <img src="clean-lab-algo.png" width="300" height="250"/>
+</p>
 
 # Pruning Techniques
 
