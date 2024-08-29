@@ -53,5 +53,19 @@ Filter 2 uses the 90th percentile of the $$\Delta t_{m,h,c}$$ distribution and s
 5 minutes was selected as the cutoff since the number of CAMEO users in the figure below don't change as drastically once we start going past 5 minutes.
 
 <p align="center">
-  <img src="cameo_curve.png" width="300" height="250"/>
+  <img src="cameo_curve.png" width="400" height="250"/>
 </p>
+
+### Filter 3: Certified CM - uncertified CH pairs
+
+Filter 3 narrows down the potential pairs of users we're looking at to only Certified CM - Uncertified CH pairs. Part of the reason is if a CH is certified as well, then it leaves the possibility valid that the CH is actually proficient in the topic. Filters 3-5 aim to reduce the probability of false identification.
+
+### Filter 4: Detecting Shared IP address
+
+Filter 4 aims to reduce the candidate pool to only CH-CM pairs that have shared an IP address. Since a CH and CM may have different IP addresses in a given course by coincidence, we will open up the definition of sharing to any course ever taken by the CH or CM.
+
+The method for achieving this filter is called "transitive closure". We take every possible combination of (name, IP)  tuple across all 115 courses being analyzed. First, the tuples sharing the same IP address are grouped together. Then, the tuples sharing the same username are grouped together.
+
+### Filter 5: Excluding shared routers
+
+Since multiple accounts can share an IP address if in a classroom or cafe, Filter 5 aims to reduce false positives by removing CH-CM pairs that are part of a group of 10 or larger that share the same IP address.
